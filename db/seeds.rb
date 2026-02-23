@@ -1,5 +1,5 @@
-Shipment.destroy_all
-Package.destroy_all
+Package.delete_all
+Shipment.delete_all
 
 s1 = Shipment.create!(
     tracking_number: "123456789",

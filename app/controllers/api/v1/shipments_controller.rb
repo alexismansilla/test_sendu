@@ -14,6 +14,11 @@ class Api::V1::ShipmentsController < ApplicationController
       end
     end
 
+    def pending
+      @shipments = Shipment.pending_shipments
+      render json: @shipments, status: :ok
+    end
+
     def show
       shipment = Shipment.find(params[:id])
       render json: shipment
