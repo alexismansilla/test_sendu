@@ -21,6 +21,15 @@ db-create:
 db-migrate:
 	docker-compose run --rm web bundle exec rails db:migrate
 
+test:
+	docker-compose run --rm web bundle exec rails test
+
+test-file:
+	docker-compose run --rm web bundle exec rails test $(FILE)
+
+logs:
+	docker-compose logs -f web
+
 setup:
 	@echo "Generando aplicación Rails 5.2.2.1 dentro de Docker..."
 	docker-compose run --rm web rails new . --force --database=postgresql --skip-bundle
