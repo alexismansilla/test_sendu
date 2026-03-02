@@ -1,4 +1,4 @@
-.PHONY: setup up down bash console db-create db-migrate
+.PHONY: setup up down bash console db-create db-migrate rspec logs build
 
 build:
 	docker-compose build
@@ -23,9 +23,6 @@ db-migrate:
 
 rspec:
 	docker-compose run --rm web bundle exec rspec
-
-test-file:
-	docker-compose run --rm web bundle exec rspec $(FILE)
 
 logs:
 	docker-compose logs -f web
