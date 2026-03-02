@@ -21,11 +21,11 @@ db-create:
 db-migrate:
 	docker-compose run --rm web bundle exec rails db:migrate
 
-test:
-	docker-compose run --rm web bundle exec rails test
+rspec:
+	docker-compose run --rm web bundle exec rspec
 
 test-file:
-	docker-compose run --rm web bundle exec rails test $(FILE)
+	docker-compose run --rm web bundle exec rspec $(FILE)
 
 logs:
 	docker-compose logs -f web
