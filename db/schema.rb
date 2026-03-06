@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2026_02_23_202247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "packages", force: :cascade do |t|
+    t.decimal "weight"
+    t.string "description"
+    t.bigint "shipment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipment_id"], name: "index_packages_on_shipment_id"
+  end
+
+  create_table "shipments", force: :cascade do |t|
+    t.string "tracking_number"
+    t.integer "status"
+    t.string "carrier_name"
+    t.string "origin_city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "packages", "shipments"
 end

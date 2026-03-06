@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weight: 9.99
+  description: MyString
+  shipment: 
+
+two:
+  weight: 9.99
+  description: MyString
+  shipment: 
